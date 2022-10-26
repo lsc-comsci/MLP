@@ -12,7 +12,7 @@ def name_scene(ctx):
 This function stores the name inside ctx so that it can be used by later.
     """
     name = input("Enter your name: ")
-    ctx = name
+    ctx["name"] = name
     yes_no = input("Would you like to be a kettle? ").lower()
     if yes_no == 'y':
         return yes_kettle_scene

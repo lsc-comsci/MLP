@@ -1,27 +1,45 @@
+"""
+Don't update this code without telling the officers!
+The minimalist framework to manage the different scenes
+"""
+
 import functools
 
-class GameData:
-	played_scenes = []
-
 def in_dev():
-	print("===NEXT SCENE IS IN DEVELOPMENT===")
+    """
+In development! Please contribute to scenes that are in development.
+    """
+    print("===NEXT SCENE IS IN DEVELOPMENT===")
 
 def ended():
-	print("===THE GAME HAS ENDED===")
+    """
+The function is called once the game runs out of scenes
+    """
+    print("===THE GAME HAS ENDED===")
 
 def scene(func):
-	@functools.wraps(func)
-	def wrapper_scene(ctx):
-		ctx.played_scenes.append(func.__name__)
-		next_scene = func(ctx)
-		return next_scene
-	wrapper_scene.scene = True
-	return wrapper_scene
+    """
+Decorator for scene functions.
+Stores the function in played_scenes when ran
+Also assigns the "scene" attr to the function
+    """
+    @functools.wraps(func)
+    def wrapper_scene(ctx):
+        if "played_scenes" in ctx:
+            ctx["played_scenes"].append(func.__name__)
+        else:
+            ctx["played_scenes"] = [func.__name__]
+        return func(ctx)
+    wrapper_scene.scene = True
+    return wrapper_scene
 
-def play(scene):
-	ctx = GameData()
-	while hasattr(scene, "scene"):
-		scene = scene(ctx)
+def play(curr_scene):
+    """
+Starts the game!
+    """
+    ctx = {}
+    while hasattr(curr_scene, "scene"):
+        curr_scene = curr_scene(ctx)
 
-	ended()
-	print("You played: " + str(GameData.played_scenes))
+    ended()
+    print("You played: " + str(ctx["played_scenes"]))
