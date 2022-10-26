@@ -55,7 +55,7 @@ After following the above steps, you can write the scene as you like! Whether it
 - Only update `main.py`. If you wish to update `basics.py`, talk to the Officers first!
 - After creating your scene(s), create the scenes in development
 	- Do not put your name on the development scenes
-	- Write `in_dev()` for their body
+	- Write `in_dev()` in their body
 - Prior to uploading, your Python program should work without crashes!
 - **Do not call other scenes. Make sure you *return* the scene!**
 
