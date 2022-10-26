@@ -1,4 +1,4 @@
-from basics import in_dev, scene, GameData, play
+from basics import in_dev, scene, play
 
 @scene
 def name_scene(ctx):
@@ -12,10 +12,10 @@ def name_scene(ctx):
 
 @scene
 def yes_kettle_scene(ctx):
-	in_dev(ctx)
+	in_dev()
 
 @scene
 def no_kettle_scene(ctx):
-	in_dev(ctx)
+	in_dev()
 
 play(name_scene)
