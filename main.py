@@ -4,7 +4,6 @@ The main python file. Write all your scenes here!
 
 from basics import in_dev, play
 
-# The @scene tells the code that this is a new scene
 # The ctx stores the game data.
 def name_scene(ctx):
     """
