@@ -19,9 +19,33 @@ ctx[name] stores the name of the player
 
 def yes_kettle_scene(ctx):
     """
-Please contribute to this scene!
+Ricardo Bernabe (BallinMonkey12)
     """
-    in_dev()
+    print("=== Something Behind You ===")
+
+    print("You wake up and go to the restroom")
+    print('Look in the mirror? Yes / No')
+
+    answer_yes = ['Yes', 'Y', 'yes', 'y']
+    answer_no = ['No', 'N', 'no', 'n']
+
+    ans1= input(">>")
+
+    if ans1 in answer_yes:
+        print("You feel Something grab you")
+
+        print("Do you break free?")
+
+        ans2= input(">>")
+
+        if ans2 in answer_yes:
+            print('You run back to bed and pretend it was a dream')
+
+        elif ans2 in answer_no:
+            print("Something chokes you to death")
+            print("=== You died ===")
+        else:
+            print('=== You died ===')
 
 def no_kettle_scene(ctx):
     """
