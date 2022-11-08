@@ -50,7 +50,62 @@ Ricardo Bernabe (BallinMonkey12)
 def no_kettle_scene(ctx):
     """
 Please contribute to this scene!
+ctx["max_hunger"] is the days the chicken can last without food (src: google)
+ctx["hunger"] is the days the chicken lasted without food
+ctx["age"] is the age of the chicken days
+    """
+    ctx["max_hunger"] = 5
+    ctx["hunger"] = 0
+    ctx["age"] = 0
+    print("Since you're not a kettle, you're a chicken.")
+    yes_no = input("Do you eat grain?")
+    if "y" in yes_no:
+        return eats_grain_scene
+    return not_normal_chicken_scene
+
+
+def eats_grain_scene(ctx):
+    """
+Written during the club
     """
     in_dev()
+
+def not_normal_chicken_scene(ctx):
+    """
+Written during the club
+    """
+    print("Now you must eat milk. What do you do?")
+    print("""1) Wait until night
+2) Call the butcher
+3) Wait for the milk to expire
+4) Use dark magic""")
+    num = int(input("Enter a number: "))
+    match num:
+        case 1:
+            return wait_until_night_scene
+        case 2:
+            in_dev()
+        case 3:
+            if "wait_milk_expire" in ctx["played_scenes"]:
+                return chicken_dead
+            return wait_milk_expire                
+        case 4:
+            in_dev()
+
+
+def wait_until_night_scene(ctx):
+    in_dev()
+
+def wait_milk_expire(ctx):
+    """
+Written during the club
+    """
+    ctx["age"] += 2
+    ctx["hunger"] += ctx["age"]
+    print(f"You've waited for {ctx["age"]} days and you're hungry. It's possible you may expire before the milk. What do you do?")
+    return not_normal_chicken_scene
+
+def chicken_dead(ctx):
+    print("The chicken was fried by the sun and it was served in KFC next to cheese.")
 
 play(name_scene)
