@@ -46,6 +46,11 @@ Ricardo Bernabe (BallinMonkey12)
             print("=== You died ===")
         else:
             print('=== You died ===')
+    else:
+        return no_look_mirror
+
+def no_look_mirror(ctx):
+    in_dev()
 
 def no_kettle_scene(ctx):
     """
@@ -84,14 +89,19 @@ Written during the club
         case 1:
             return wait_until_night_scene
         case 2:
-            in_dev()
+            return butcher_scene
         case 3:
             if "wait_milk_expire" in ctx["played_scenes"]:
                 return chicken_dead
             return wait_milk_expire                
         case 4:
-            in_dev()
+            return dark_magic_scene
 
+def butcher_scene(ctx):
+    in_dev()
+
+def dark_magic_scene(ctx):
+    in_dev()
 
 def wait_until_night_scene(ctx):
     in_dev()
@@ -102,7 +112,7 @@ Written during the club
     """
     ctx["age"] += 2
     ctx["hunger"] += ctx["age"]
-    print(f"You've waited for {ctx["age"]} days and you're hungry. It's possible you may expire before the milk. What do you do?")
+    print(f"You've waited for {ctx['age']} days and you're hungry. It's possible you may expire before the milk. What do you do?")
     return not_normal_chicken_scene
 
 def chicken_dead(ctx):
