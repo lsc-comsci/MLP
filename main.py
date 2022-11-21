@@ -51,12 +51,16 @@ Ricardo Bernabe (BallinMonkey12)
         elif ans2 in answer_no:
             print("Something chokes you to death")
             print("=== You died ===")
-        else:
-            print('=== You died ===')
+
+            goback = input("Go back one scene? ")
+            if goback in answer_yes:
+                return yes_kettle_scene
     else:
         return no_look_mirror
 
 def back_to_bed(ctx):
+    """Julio amaya"""
+
     print("You realize it wasn't a dream and are in great danger. What do you do?")
     print("""1) Call the police
 2) Get out of bed and fight it
@@ -70,12 +74,14 @@ def back_to_bed(ctx):
         case 2:
             print("You tried your best to fight this dark evil but you were crushed.")
             print("=== You died ===")
+
             goback = input("Go back one scene? ")
             if goback in answer_yes:
                 return back_to_bed
         case 3:
             print("You have successfully rusted out.")
             print("=== You died ===")
+            
             goback = input("Go back one scene? ")
             if goback in answer_yes:
                 return back_to_bed
@@ -114,7 +120,16 @@ def eats_grain_scene(ctx):
     """
 Written during the club
     """
-    in_dev()
+
+    """julio amaya"""
+
+    print("""You're just a boring chicken.
+After a few weeks you'll served in KFC.""")
+
+    goback = input("Go back one scene? ")
+    if goback in answer_yes:
+        return no_kettle_scene
+
 
 def not_normal_chicken_scene(ctx):
     """
@@ -139,11 +154,34 @@ Written during the club
             return dark_magic_scene
 
 def butcher_scene(ctx):
+    """julio amaya"""
+
     print("The butcher was hungry and ate you.")
     print('=== You died ===')
 
+    goback = input("Go back one scene? ")
+    if goback in answer_yes:
+        return not_normal_chicken_scene
+
+
 def dark_magic_scene(ctx):
-    in_dev()
+    """julio amaya"""
+    
+    print("""You spawned a jug of milk by flapping a wing, then shot a bean of energy from you beak 
+that turned the milk into trunks that you can eat!
+You have found that you have dark magic powers!! what is your next step?""")
+    print("""1) Turn yourself into a human
+2) Fly away to the moon
+3) Spawn a portal and Go to the harry potter world for chickens
+4) Spawnn more milk""")
+    ansss = int(input(">>> "))
+
+    match ansss:
+        case 1:
+            print("""Your magic isn't fully developed, you turned into a hybrid of chicken and human.
+The butcher thought you were an alien and butchered you.""")
+            print("=== You died ===")
+
 
 def wait_until_night_scene(ctx):
     in_dev()
