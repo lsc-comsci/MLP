@@ -93,11 +93,101 @@ He saved you. He destroyed the dark evil that was hunting you.""")
 def jesus_saved_you(ctx):
     in_dev()
 
-
 def no_look_mirror(ctx):
+    """ justin kondratenko """
+    import time, sys
+
+    for i in range(3):
+        time.sleep(1)
+        sys.stdout.write('.')
+        sys.stdout.flush()
+    
+    time.sleep(1)
+    print("(The Mirror took great offense to that)")
+    time.sleep(3)
+    print("THE MIRROR NOW CHALLENGES YOU TO A SMASH BROS ULTIMATE DUEL")
+    print("Do you accept his challenge? Yes / No")
+    
+    ans1= input(">>")
+    if ans1 in answer_yes:
+        return smash_bros_duel
+
+    elif ans1 in answer_no:
+        print("idk what to tell you, like were you expecting to survive The Mirror crashing on top of you or something?")
+        print("=== You died ===")
+        goback = input("Go back one scene? ")
+        if goback in answer_yes:
+            return no_look_mirror
+    
+def smash_bros_duel(ctx):
+    """ justin kondratenko """
+    import time, sys
+    
+    print('You pick up your controller, showing no mercy to that grotesque mirror of yours.')
+    print("Pick your fighter:")
+    
+    # Prints out Fighters
+    fighters = ["Mario", "Donkey Kong", "Link", "Samus", "Yoshi", "Kirby", "Fox", "Pickachu"]
+    index=1
+    for fighter in fighters:
+        print(str(index) + ")" + fighter)
+        index += 1
+
+    # Choose your Fighter
+    # Minus one because index of array starts at 0
+    fighter_chosen = fighters[int(input("Enter a number: "))-1]
+    delay=2
+    
+    print("You've chosen " + fighter_chosen + " and the mirror also chose " + fighter_chosen +
+    " because get it, it's a mirror, ikr funny let's move on")
+    time.sleep(delay*2)
+
+    print("The Match has begun", end="", flush=True)
+    for i in range(3):
+        time.sleep(1)
+        sys.stdout.write('.')
+        sys.stdout.flush()
+    
+    time.sleep(delay)
+    print("\nBoth of you are evenly matched", end="", flush=True)
+    for i in range(3):
+        time.sleep(1)
+        sys.stdout.write('.')
+        sys.stdout.flush()
+        
+    time.sleep(delay)
+    print("\nBoth of you are about to deal the final blow", end="", flush=True)
+    for i in range(3):
+        time.sleep(1)
+        sys.stdout.write('.')
+        sys.stdout.flush()
+        
+    time.sleep(delay)
+    print("\nCan you be the one to finish him first? ", end="", flush=True)
+    for i in range(3):
+        time.sleep(1)
+        sys.stdout.write(str(3-i) + " ")
+        sys.stdout.flush()
+    
+    time.sleep(delay/2)
+    input("\nPress B -> Enter! ")
+    
+    print("YOU HIT HIM WITH A STRONG SPECIAL ATTACK, DEFEATING THE MIRROR AND PUTTING IT BACK WHERE IT BELONGS")
+    time.sleep(delay*2)
+
+    print("After a hard day of showing The Mirror who's boss, shall you go downstairs to found out what The Rock is cooking? Yes / No")
+
+    ans1= input(">>")
+    if ans1 in answer_yes:
+        return yes_rock_cooking
+    if ans1 in answer_no:
+        return no_rock_cooking
+
+def yes_rock_cooking(ctx):
     in_dev()
 
-
+def no_rock_cooking(ctx):
+    in_dev()
 
 def no_kettle_scene(ctx):
     """
