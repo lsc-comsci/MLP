@@ -95,12 +95,11 @@ def jesus_saved_you(ctx):
 
 def no_look_mirror(ctx):
     """ justin kondratenko """
-    import time, sys
+    import time
 
     for i in range(3):
         time.sleep(1)
-        sys.stdout.write('.')
-        sys.stdout.flush()
+        print(".", end="", flush=True)
     
     time.sleep(1)
     print("(The Mirror took great offense to that)")
@@ -121,7 +120,7 @@ def no_look_mirror(ctx):
     
 def smash_bros_duel(ctx):
     """ justin kondratenko """
-    import time, sys
+    import time
     
     print('You pick up your controller, showing no mercy to that grotesque mirror of yours.')
     print("Pick your fighter:")
@@ -139,42 +138,27 @@ def smash_bros_duel(ctx):
     delay=2
     
     print("You've chosen " + fighter_chosen + " and the mirror also chose " + fighter_chosen +
-    " because get it, it's a mirror, ikr funny let's move on")
+    " (because get it, it's a mirror, ikr funny let's move on)")
     time.sleep(delay*2)
 
-    print("The Match has begun", end="", flush=True)
-    for i in range(3):
-        time.sleep(1)
-        sys.stdout.write('.')
-        sys.stdout.flush()
-    
-    time.sleep(delay)
-    print("\nBoth of you are evenly matched", end="", flush=True)
-    for i in range(3):
-        time.sleep(1)
-        sys.stdout.write('.')
-        sys.stdout.flush()
+    match_progression = ["The Match as begun", "\nBoth of you are evenly matched", "\nBoth of you are about to deal the final blow"]
+
+    for phrase in match_progression:
+        print(phrase, end="", flush=True)
+        for i in range(3):
+            time.sleep(1)
+            print(".", end="", flush=True)
+        time.sleep(delay)
         
-    time.sleep(delay)
-    print("\nBoth of you are about to deal the final blow", end="", flush=True)
-    for i in range(3):
-        time.sleep(1)
-        sys.stdout.write('.')
-        sys.stdout.flush()
-        
-    time.sleep(delay)
     print("\nCan you be the one to finish him first? ", end="", flush=True)
     for i in range(3):
         time.sleep(1)
-        sys.stdout.write(str(3-i) + " ")
-        sys.stdout.flush()
+        print(str(3-i), end=" ", flush=True)
     
     time.sleep(delay/2)
     input("\nPress B -> Enter! ")
     
     print("YOU HIT HIM WITH A STRONG SPECIAL ATTACK, DEFEATING THE MIRROR AND PUTTING IT BACK WHERE IT BELONGS")
-    time.sleep(delay*2)
-
     print("After a hard day of showing The Mirror who's boss, shall you go downstairs to found out what The Rock is cooking? Yes / No")
 
     ans1= input(">>")
