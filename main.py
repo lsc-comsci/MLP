@@ -159,6 +159,64 @@ def smash_bros_duel(ctx):
         return no_rock_cooking
 
 def yes_rock_cooking(ctx):
+
+    print ("The Rock is cooking spaghetti for the dinner. He is struggling with the receipe he found online. \n\n Would you like to help him with cooking or sit at the dinning table playing game?")
+    ans = input ("\nYes for help.\nNo for playing game.\n>> ")
+    
+    if ans in answer_yes:
+        return help_cooking
+    return playing_game
+
+def help_cooking (ctx):
+
+    def selection():
+        ingredients = ["Fresh garlic", "Hot pepper flakes", "Red Wine", "Herbs", "Cheese"]
+
+        i= 1
+        for ingredient in ingredients: 
+            print (str(i)+ ")" + ingredient)
+            i+=1
+
+        answer = ingredients[int (input(">>"))-1]
+
+        if answer == "Herbs":
+            print("You have chosen" + answer + """ to add to the Rock's spaghetti.
+            CONGRATULATION!!!! 
+            That's the exact missing ingredient for the perfect spaghetii.""")
+            in_dev()    
+        elif answer == "Fresh garlic":
+            print ("The Rock has already added "+ answer + ". It is fortunate that you did not ruin his spaghetti." )
+            choose_again = input ("Would you like to select another ingredient?")
+            if choose_again in answer_yes: 
+                selection()
+            in_dev()
+        elif answer == "Hot pepper flakes":
+            print("The Rock has already added " + answer + " . You ruined his speghetti with this strong spice")
+            import time 
+            for i in range(5):
+                time.sleep(0.5)
+                print(".", end="", flush = True)
+            print("The Rock got SUPER ANGRY and punch you in the face.")
+            print("=== You died ===")
+            in_dev()
+        elif answer == "Red Wine":
+            print ("The Rock has already added "+ answer + ". It is fortunate that you did not ruin his spaghetti." )
+            choose_again = input ("Would you like to select another ingredient?")
+            if choose_again in answer_yes: 
+                selection()
+            in_dev()
+        elif answer == "Cheese":
+            print ("The Rock has already added "+ answer + ". It is fortunate that you did not ruin his spaghetti." )
+            choose_again = input ("Would you like to select another ingredient?")
+            if choose_again in answer_yes: 
+                selection()
+            in_dev()
+                        
+    print ("\nYou realize that he forgot to add one important ingredient in his spaghetii. You decide to help.\n\nSelect your ingredient:")
+    selection()
+
+    
+def playing_game (ctx):
     in_dev()
 
 def no_rock_cooking(ctx):
