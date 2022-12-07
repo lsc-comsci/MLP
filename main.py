@@ -219,9 +219,6 @@ def help_cooking (ctx):
 def playing_game (ctx):
     in_dev()
 
-def no_rock_cooking(ctx):
-    in_dev()
-
 def no_kettle_scene(ctx):
     """
 Please contribute to this scene!
@@ -236,8 +233,7 @@ ctx["age"] is the age of the chicken days
     yes_no = input("Do you eat grain? ")
     if "y" in yes_no:
         return eats_grain_scene
-    return not_normal_chicken_scene
-
+    return not_normal_chicken_scene    
 
 def eats_grain_scene(ctx):
     """
@@ -320,5 +316,75 @@ Written during the club
 
 def chicken_dead(ctx):
     print("The chicken was fried by the sun and it was served in KFC next to cheese.")
+
+def escape_the_matrix(ctx):
+    """
+Truc Le (Chuck Le)
+    """
+    import time 
+
+    for i in range(3):
+        time.sleep(1)
+        print(".", end="", flush=True)
+
+    print("""First action you take: 
+
+            1) Join a computer sciene club for references.
+            2) Learn from a Indian guy on YouTube.
+            3) Enrolling in a university in Vietnam since it's cheaper. Majoring in ComSci.""")
+
+    act = int(input(">>> "))
+    match act:
+            case 1:
+                print("You tride your best from zero. Being a kettle made it challenging, but you also gained lots of knowledge. \n\nYou earned yourself the first prize, the club's signature hat.")
+                time.sleep(5)
+                print("\nUnfortunately, after ~3 months being in the club. You fell distached and the club was not how you imagined it would be.\n\nYou decided to left the club.")
+                time.sleep(5)
+                print("\nAs a purnishment, the club president casted a curse on who dare to abandon the way. It was written in the club's constitution, but who reads it anyways...\n\nYou pray to God")
+                time.sleep(5)
+                print("\nWILL HE ANSWER...???")
+                say = input(">>>> ")
+                if say in answer_yes:
+                    return jesus_saved_you
+                if say in answer_no:
+                    print("The curse made you turn into something totally different from a kettle")
+                    print("\n****************************************")
+                    time.sleep(4)
+                    return no_kettle_scene
+            case 2:
+                print("You find out the rumors were true. Those Indian YouTubers are really helpful.\n\nAt the end of the video, there is a redeem link. Will you click on it?")
+                rep = input(">>> ")
+                if rep in answer_yes:
+                    print("You gained a coupon to another online lesson:")
+                    time.sleep(3)
+                    print("\nHow To Become A Millionaire While Doing Almost Nothing")
+                    time.sleep(4)
+                    print("\nYou followed just to go bankrupt and had to start over again. Some *lesson* you learned.")
+                    print("\n****************************************")
+                    return escape_the_matrix
+                if rep in answer_no:
+                    print("Makes sense. You are better at containing tea than clicking on any link.\n\nYou started to doubt greatly about the path you have chosen.")
+                    print("\n****************************************")
+                    time.sleep(3)
+                    return escape_the_matrix
+            case 3:
+                print("You went to far...\nYou got trauma...\nYou craved a spa. The Rock's SPAghetti")
+                time.sleep(4)
+                print("\n****************************************")
+                return yes_rock_cooking
+
+def no_rock_cooking(ctx):
+    """
+Truc Le (Chuck Le)
+    """
+    import time 
+
+    for i in range(3):
+        time.sleep(1)
+        print(".", end="", flush=True)
+
+    print("You realize why went through all that fighting when you can be the rules maker of your own game? Escaping the maxtrix")
+    print(" ====> You decided to be the first kettle to become a game developer")
+    return escape_the_matrix
 
 play(name_scene)
